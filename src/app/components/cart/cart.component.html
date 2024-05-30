@@ -1,0 +1,41 @@
+<div class="card"> 
+    <div class="card-body"> 
+        <div class="row mb-4"> 
+            <h2 class="col-12">Cart </h2> 
+        </div> 
+        <table class="table"> 
+            <thead> 
+                <tr> 
+                    <th>Quantity</th>
+                    <th> 
+                        Image 
+                    </th> 
+                    <th>Product</th> 
+                    <th>Code</th> 
+                    <th>Available</th> 
+                    <th>Price </th> 
+                    <th>5 Star Rating</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr *ngFor='let p of products'> 
+                    <td>1</td>
+                    <td><img [src]="p.imageUrl" width="50px" [title]="p.productName | uppercase"></td> 
+                    <td>{{p.productName}}</td>
+                    <td>{{p.productCode}}</td> 
+                    <td>{{p.releaseDate}}</td> 
+                    <td>{{p.price | currency}}</td> 
+                    <td> 
+                       <app-star #starComp [rating]="p.starRating">
+                          {{p.starRating | textstar}}
+                       </app-star>
+                    </td> 
+                </tr> 
+            </tbody> 
+        </table> 
+
+        <div class="payment">
+            <button class="btn btn-warning" onclick="alert('Thanh toán thành công!');">Thanh toán</button>
+        </div>
+    </div>     
+</div> 

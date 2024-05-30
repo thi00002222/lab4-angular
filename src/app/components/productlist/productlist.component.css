@@ -1,0 +1,19 @@
+.title-h4 {
+    color: red;
+}
+
+.btn-customs {
+    width: 5rem;
+    height: 40px;
+    color: white;
+}
+.table .link-product-detail {
+    color: #1b1818;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+.table .link-product-detail:hover {
+    color: #df4e4e;
+    text-decoration: underline;
+}

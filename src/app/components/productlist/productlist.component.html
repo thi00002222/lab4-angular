@@ -1,0 +1,50 @@
+<div class="card"> 
+    <div class="card-header"> 
+        <h4 class="title-h4">Product list</h4> 
+    </div> 
+    <div class="card-body"> 
+        <div class="row mb-2"> 
+            <label class="col-2">Filter:</label> 
+            <input type="text" class="col-3" [(ngModel)]='listFilter'> 
+            <div class="col-7"></div> 
+        </div> 
+        <div class="row mb-4"> 
+            <h2 class="col-12">Filter by: </h2> 
+        </div> 
+        <table class="table"> 
+            <thead> 
+                <tr> 
+                    <th>Hide/Show</th>
+                    <th> 
+                        Image 
+                    </th> 
+                    <th>Product</th> 
+                    <th>Code</th> 
+                    <th>Available</th> 
+                    <th>Price </th> 
+                    <th>5 Star Rating</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr *ngFor='let p of products'> 
+                    <td>
+                        <button class="btn btn-customs" [class.bg-danger]="p.showImage" [class.bg-black]="!p.showImage" (click)="toggleImage(p)">{{ p.showImage ? 'Hide' : 'Show' }}</button>
+                    </td>
+                    <td><img *ngIf="p.showImage" [src]="p.imageUrl" width="50px" [title]="p.productName | uppercase"></td> 
+                    <td><a class="link-product-detail" routerLink="/products/{{p.productId}}">{{p.productName}}</a></td>
+                    <td>{{p.productCode}}</td> 
+                    <td>{{p.releaseDate}}</td> 
+                    <td>{{p.price | currency}}</td> 
+                    <td> 
+                       <!-- <app-star #starComp [rating]="p.starRating">
+                          {{p.starRating | textstar}}
+                       </app-star> -->
+                       <app-star [rating]="p.starRating"></app-star>
+                    </td> 
+                </tr> 
+            </tbody> 
+        </table> 
+
+
+    </div>     
+</div> 
